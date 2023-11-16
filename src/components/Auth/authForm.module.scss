@@ -1,0 +1,92 @@
+@import "../../assets/styles/mixin";
+
+.main {
+  position: relative;
+  @include flex-50-y;
+  flex-direction: column;
+  width: 100%;
+  max-width: s(600);
+  padding: s(60);
+  border-radius: s(10);
+  background-color: var(--bg-opacity);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: s(30);
+  font-size: s(30);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: s(20);
+  padding-bottom: s(25);
+}
+
+.label {
+  border-radius: s(5);
+  color: var(--text);
+}
+
+.input {
+  border: 0.1em solid transparent;
+  border-radius: inherit;
+  background-color: #0a0c19d3;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  border-radius: s(5);
+  padding: s(15) s(50);
+  font-weight: 500;
+  background-color: var(--bg-light);
+  color: var(--text);
+  @include transition(opacity);
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 0.8;
+  }
+  &[disabled] {
+    pointer-events: none;
+  }
+  & > span {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    top: 50%;
+    right: 20%;
+    display: block;
+    @include block(s(15));
+    border: solid s(3) transparent;
+    border-top-color: var(--text);
+    border-left-color: var(--text);
+    border-bottom-color: var(--text);
+    border-radius: 100%;
+    transform: translateY(-50%);
+    transform-origin: center top;
+    animation: loading 0.8s linear infinite;
+    @include transitions((visibility, opacity));
+    @keyframes loading {
+      from {
+        transform: rotate(0deg) translateY(-50%);
+        transform: rotate(0deg) translateY(-50%);
+      }
+
+      to {
+        transform: rotate(360deg) translateY(-50%);
+        transform: rotate(360deg) translateY(-50%);
+      }
+    }
+    &[data-loader="true"] {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

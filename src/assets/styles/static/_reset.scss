@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+$reset: true;
+
+@if $reset == true {
+  button,
+  input {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  button,
+  input {
+    cursor: pointer;
+    font: inherit;
+    line-height: inherit;
+    color: inherit;
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  a,
+  button {
+    display: inline-block;
+  }
+
+  h1,
+  h2 {
+    margin: 0;
+    font: inherit;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}

@@ -1,0 +1,25 @@
+@import "../../assets/styles/mixin";
+
+.main {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: s(15);
+  top: 5%;
+  left: 5%;
+  padding: s(10) s(30);
+  color: var(--text);
+  background-color: var(--bg-opacity);
+  & > strong {
+    & > span {
+      &:first-child {
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-right: s(10);
+      }
+      &:last-child {
+        user-select: text;
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@import "../../../assets/styles/mixin";
+
+$padding-side: 20;
+
+%fonts {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.label {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: max-content;
+  & > span[data-placeholder] {
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    bottom: 0;
+    height: 0.1em;
+    width: 100%;
+    color: transparent;
+    background-color: var(--bg-light);
+    will-change: transform;
+    @include transition(transform, translateX(-110%));
+  }
+}
+
+.input {
+  cursor: pointer;
+  overflow: hidden;
+  width: 100%;
+  padding: s($padding-side) s(calc($padding-side * 2));
+  caret-color: var(--bg-light);
+  background-color: transparent;
+  &,
+  &::placeholder {
+    @extend %fonts;
+  }
+  &::placeholder {
+    @include transition(opacity, 0.5);
+  }
+  &:hover:not(:disabled),
+  &:focus:not(:disabled),
+  &:active:not(:disabled) {
+    &::placeholder {
+      opacity: 1;
+    }
+    & + span[data-placeholder] {
+      transform: translateX(0%);
+    }
+  }
+  &[disabled] {
+    cursor: default;
+    pointer-events: none;
+  }
+}

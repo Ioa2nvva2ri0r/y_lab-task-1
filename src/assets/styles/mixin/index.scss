@@ -1,0 +1,10 @@
+// Перерасчёт из px в rem на ширине экрана 1920px
+@function s($px) {
+  @return calc($px / 10) + rem;
+}
+// Перерасчёт из px в rem на ширине экрана 768px
+@function s-md($px) {
+  @return calc(($px / 10) * 2) + rem;
+}
+
+@import "breakpoint", "block", "flex", "animation";

@@ -1,0 +1,18 @@
+@import "../../../assets/styles/mixin";
+
+.main {
+  position: absolute;
+  @include flex-50-50;
+  top: 0;
+  left: 0;
+  border: none;
+  padding: s(50);
+  @include block(100%);
+  background-color: #0a0c19ee;
+  &__desc {
+    text-align: center;
+    font-size: s(30);
+    color: var(--text);
+    line-height: 120%;
+  }
+}
